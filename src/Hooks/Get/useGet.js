@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 export const useGet = ({ key, fn }) => {
   const {
     error,
-    data: fetch,
+    data:fetch,
     isLoading: isFetching,
   } = useQuery({
     queryFn: fn,

@@ -41,7 +41,7 @@ function ProtectedRoute({ children }) {
 
 
   // 4. If there IS a user, render the app
-  if (user?.email === 'admin@nordrakreds.com') return navigate('/admin');
+  if (user?.email === 'admin@futonmfb.com') return navigate('/admin');
   if (isAuthenticated) return children;
 }
 

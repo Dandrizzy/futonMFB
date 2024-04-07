@@ -13,7 +13,7 @@ export async function signup({
       data: {
         fullName,
         avatar: '',
-        
+        owner: 'futon'
       },
     },
   });

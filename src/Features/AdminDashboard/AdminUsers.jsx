@@ -40,7 +40,7 @@ const AdminUsers = () => {
 
 
  const onSubmit = data => {
-  create({ ...data, admin: 'milan', userId });
+  create({ ...data, admin: 'futon', userId, restricted: false });
  };
 
 

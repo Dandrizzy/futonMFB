@@ -42,7 +42,7 @@ const OTPPopup = () => {
         {...register('otp', {
          minLength: 6
         })}
-        defaultValue={otp[0].otp}
+        defaultValue={otp[0]?.otp}
         placeholder="Enter otp"
        />
       </label>

@@ -30,12 +30,12 @@ export default function UserHero() {
   const { user } = useUser();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { fetch: fetchFn } = useGetApi({ key: 'accounts' });
-  const { fetch: acc, isFetching } = useGet({ key: ['account', user?.id], fn: fetchFn });
-
-  if (isFetching || isFetchingTransaction || isLoading) return <Spinner />;
+  const { isFetching, fetch: acc } = useGet({ key: ['account', user?.id], fn: fetchFn });
 
   const currentUser = acc?.find(ac => ac?.userId === user?.id);
   const userTransactions = transactions.filter(t => t.userId === user?.id);
+  if (isFetching || isFetchingTransaction || isLoading) return <Spinner />;
+
 
 
   return (
@@ -109,7 +109,7 @@ export default function UserHero() {
         </Dialog>
       </header>
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        {currentUser.restricted && <div className=" pb-4">
+        {currentUser?.restricted && <div className=" pb-4">
           <CalloutCard />
         </div>}
         <div

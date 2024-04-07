@@ -32,6 +32,7 @@ const TransferPopUp = ({ className = ' w-full', userId }) => {
 
  const bal = acc?.find(ac => ac?.userId === userId)?.checking;
 
+
  const onSubmit = data => {
   if (!data || data === undefined) return;
   const amount = bal - data?.amount;

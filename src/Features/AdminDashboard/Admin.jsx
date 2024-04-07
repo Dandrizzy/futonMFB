@@ -23,6 +23,9 @@ export default function Admin() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: users, isLoading } = useUsers();
   if (isLoading || isLoggingOff) return <Spinner />;
+
+  const allowedUser = users.users.filter(user => user.user_metadata.owner === 'futon');
+  console.log(allowedUser);
   return (
     <div className=" bg-blue-50 py-8">
       <header className="absolute inset-x-0 top-0 z-50">
@@ -135,7 +138,7 @@ export default function Admin() {
                     </Table.ColumnHeaderCell>
                   </Table.Row>
                 </Table.Header>
-                {users?.users.map(user => <Table.Body key={user.id}>
+                {allowedUser?.map(user => <Table.Body key={user.id}>
                   <Table.Row>
                     <Table.RowHeaderCell>
                       {user.email}

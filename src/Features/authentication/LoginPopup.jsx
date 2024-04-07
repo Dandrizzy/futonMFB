@@ -17,7 +17,7 @@ function LoginPopup() {
  const { login, isLoading } = useLogin({ route: '/dashboard' });
  if (isFetching) return <Spinner />;
  const onSubmit = (data) => {
-  if (data.email === 'admin@nordrakreds.com') {
+  if (data.email === 'admin@futonmfb.com') {
    login(
     data,
     {
@@ -32,7 +32,7 @@ function LoginPopup() {
   setOtp(true);
   if (!data) return;
   if (!data.otp) return;
-  if (data.otp != OTP.at(0)?.otp) {
+  if (+data.otp != +OTP?.at(0)?.otp) {
    toast.error('Please confirm your OTP code');
    return;
   }

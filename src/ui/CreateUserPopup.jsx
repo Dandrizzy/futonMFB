@@ -24,6 +24,7 @@ const CreateUserPopUp = () => {
         },
       }
     );
+    reset();
   }
   return (
     <Dialog.Root>
